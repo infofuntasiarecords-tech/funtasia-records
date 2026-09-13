@@ -39,6 +39,14 @@ body{
 .tinted{background:#dfe6e2}
 .artist-card{max-width:700px;margin:50px auto 0;display:flex;align-items:center;text-align:left;gap:28px;padding:30px;border:1px solid var(--line);background:rgba(255,255,255,.28)}
 .artist-mark{width:105px;height:105px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);font-family:"Cormorant Garamond",serif;font-size:48px}
+.artist-avatar{
+  width:105px;
+  height:105px;
+  object-fit:cover;
+  border-radius:50%;
+  border:1px solid var(--line);
+  flex-shrink:0;
+}
 .artist-card h3{font-family:"Cormorant Garamond",serif;font-size:34px;margin:0}
 .artist-card span{
   display:block;
