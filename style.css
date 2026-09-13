@@ -40,7 +40,18 @@ body{
 .artist-card{max-width:700px;margin:50px auto 0;display:flex;align-items:center;text-align:left;gap:28px;padding:30px;border:1px solid var(--line);background:rgba(255,255,255,.28)}
 .artist-mark{width:105px;height:105px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);font-family:"Cormorant Garamond",serif;font-size:48px}
 .artist-card h3{font-family:"Cormorant Garamond",serif;font-size:34px;margin:0}
-.artist-card p{margin:5px 0}.artist-card span,.placeholder{font-size:12px;opacity:.55}
+.artist-card span{
+  display:block;
+  margin-top:10px;
+  font-size:14px;
+  line-height:1.7;
+  opacity:.8;
+}
+
+.placeholder{
+  font-size:12px;
+  opacity:.55;
+}
 .empty-card{max-width:650px;margin:45px auto 0;padding:60px 20px;border:1px solid var(--line)}
 .empty-card span{font-size:25px}.empty-card h3{font-family:"Cormorant Garamond",serif;font-size:30px;margin:12px}
 .contact{background:var(--deep);color:var(--paper)}
