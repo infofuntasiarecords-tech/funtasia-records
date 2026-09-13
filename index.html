@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FUNtasia Records — Official Website">
+  <title>FUNtasia Records</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#top">FUNtasia Records</a>
+  <button class="menu" aria-label="Open menu">☰</button>
+  <nav>
+    <a href="#about">ABOUT</a>
+    <a href="#artists">ARTISTS</a>
+    <a href="#releases">RELEASES</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="FUNtasia Records">
+    <img src="assets/hero.jpg" alt="FUNtasia Records">
+    <div class="scroll">SCROLL <span>↓</span></div>
+  </section>
+
+  <section id="about" class="section intro">
+    <p class="eyebrow">ABOUT</p>
+    <h1>FUNtasia Records</h1>
+    <div class="ornament">❦</div>
+    <p class="lead">A place for music, imagination, and worlds yet to be discovered.</p>
+    <p class="muted">Official website of FUNtasia Records. More information will be added as the story unfolds.</p>
+  </section>
+
+  <section id="artists" class="section tinted">
+    <p class="eyebrow">ARTISTS</p>
+    <h2>Artists</h2>
+    <div class="artist-card">
+      <div class="artist-mark">H</div>
+      <div>
+        <h3>Hʉeliang</h3>
+        <p>Artist / Composer</p>
+        <span>Profile coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="releases" class="section">
+    <p class="eyebrow">RELEASES</p>
+    <h2>Releases</h2>
+    <div class="empty-card">
+      <span>✦</span>
+      <h3>Coming Soon</h3>
+      <p>New music from FUNtasia Records will appear here.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <p class="eyebrow">CONTACT</p>
+    <h2>Contact</h2>
+    <p>For inquiries, collaborations, and other messages.</p>
+    <p class="placeholder">Contact details coming soon.</p>
+  </section>
+</main>
+
+<footer>
+  <div>FUNtasia Records</div>
+  <small>© <span id="year"></span> FUNtasia Records</small>
+</footer>
+
+<script>
+document.querySelector('.menu').addEventListener('click', () => {
+  document.querySelector('.nav nav').classList.toggle('open');
+});
+document.querySelectorAll('.nav nav a').forEach(a => a.addEventListener('click', () => {
+  document.querySelector('.nav nav').classList.remove('open');
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
