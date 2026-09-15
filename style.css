@@ -131,3 +131,19 @@ footer small{display:block;font-family:Montserrat,sans-serif;font-size:9px;lette
   background:#38585a;
   color:#fff;
 }
+.artist-social{
+  display:inline-block;
+  margin-top:16px;
+  color:inherit;
+  font-family:Montserrat,sans-serif;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-decoration:none;
+  opacity:.65;
+  transition:opacity .2s ease;
+}
+
+.artist-social:hover{
+  opacity:1;
+  text-decoration:underline;
+}
