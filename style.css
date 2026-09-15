@@ -114,22 +114,23 @@ footer small{display:block;font-family:Montserrat,sans-serif;font-size:9px;lette
 .collaborate-en p{
   line-height:1.9;
 }
-.collaborate-button{
+a.collaborate-button{
   display:inline-block;
   margin-top:10px;
   padding:12px 28px;
   border:1px solid #38585a;
-  color:#38585a;
-  text-decoration:none;
+  background-color:transparent !important;
+  color:#38585a !important;
+  text-decoration:none !important;
   font-family:Montserrat,sans-serif;
   font-size:13px;
   letter-spacing:.14em;
   transition:all .25s ease;
 }
 
-.collaborate-button:hover{
-  background:#38585a;
-  color:#fff;
+a.collaborate-button:hover{
+  background-color:#38585a !important;
+  color:#fff !important;
 }
 .artist-social{
   display:inline-block;
