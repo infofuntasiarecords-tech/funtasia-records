@@ -93,3 +93,24 @@ footer small{display:block;font-family:Montserrat,sans-serif;font-size:9px;lette
 .contact a:hover{
   opacity:.65;
 }
+.collaborate-text{
+  max-width:760px;
+  margin:40px auto 0;
+}
+
+.collaborate-text p{
+  line-height:2;
+}
+
+.collaborate-ja{
+  margin-bottom:40px;
+}
+
+.collaborate-en{
+  margin-bottom:40px;
+  opacity:.72;
+}
+
+.collaborate-en p{
+  line-height:1.9;
+}
