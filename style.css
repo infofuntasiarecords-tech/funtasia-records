@@ -78,7 +78,7 @@ footer small{display:block;font-family:Montserrat,sans-serif;font-size:9px;lette
   .nav nav{display:none;position:absolute;top:60px;left:0;right:0;padding:28px;background:rgba(243,239,232,.97);flex-direction:column;text-align:center}
   .nav nav.open{display:flex}
   .hero{height:72svh;min-height:500px}
-  .hero img{object-fit:cover;object-position:88% center}
+  .hero img{object-fit:cover;object-position:100% center}
   .section{padding:85px 24px}
   .artist-card{flex-direction:column;text-align:center}
 }
