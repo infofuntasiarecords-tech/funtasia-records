@@ -18,19 +18,18 @@
   <script>
   (() => {
     let language = 'en';
+    const browser = (navigator.language || '').toLowerCase();
     try {
       const saved = localStorage.getItem('funtasia-language');
-      if (saved === 'ja' || saved === 'en') {
-        language = saved;
-      } else if ((navigator.language || '').toLowerCase().startsWith('ja')) {
-        language = 'ja';
-      }
+      if (['ja', 'en', 'ko', 'zh-TW'].includes(saved)) language = saved;
+      else if (browser.startsWith('ja')) language = 'ja';
+      else if (browser.startsWith('ko')) language = 'ko';
+      else if (browser.startsWith('zh-tw') || browser.startsWith('zh-hant')) language = 'zh-TW';
     } catch (e) {
-      if ((navigator.language || '').toLowerCase().startsWith('ja')) {
-        language = 'ja';
-      }
+      if (browser.startsWith('ja')) language = 'ja';
+      else if (browser.startsWith('ko')) language = 'ko';
+      else if (browser.startsWith('zh-tw') || browser.startsWith('zh-hant')) language = 'zh-TW';
     }
-
     document.documentElement.lang = language;
     document.documentElement.dataset.lang = language;
   })();
@@ -52,27 +51,43 @@
     <nav>
       <a class="lang-ja" href="#about">概要</a>
       <a class="lang-en" href="#about">ABOUT</a>
+      <a class="lang-ko" href="#about">소개</a>
+      <a class="lang-zh-TW" href="#about">關於</a>
 
       <a class="lang-ja" href="#artists">アーティスト</a>
       <a class="lang-en" href="#artists">ARTISTS</a>
+      <a class="lang-ko" href="#artists">아티스트</a>
+      <a class="lang-zh-TW" href="#artists">音樂人</a>
 
       <a class="lang-ja" href="#collaborate">コラボレーション</a>
       <a class="lang-en" href="#collaborate">COLLABORATE</a>
+      <a class="lang-ko" href="#collaborate">협업</a>
+      <a class="lang-zh-TW" href="#collaborate">合作</a>
 
       <a class="lang-ja" href="#releases">リリース</a>
       <a class="lang-en" href="#releases">RELEASES</a>
+      <a class="lang-ko" href="#releases">발매</a>
+      <a class="lang-zh-TW" href="#releases">作品</a>
 
       <a class="lang-ja" href="#support">サポート</a>
       <a class="lang-en" href="#support">SUPPORT</a>
+      <a class="lang-ko" href="#support">후원</a>
+      <a class="lang-zh-TW" href="#support">支持</a>
 
       <a class="lang-ja" href="#contact">お問い合わせ</a>
       <a class="lang-en" href="#contact">CONTACT</a>
+      <a class="lang-ko" href="#contact">문의</a>
+      <a class="lang-zh-TW" href="#contact">聯絡</a>
     </nav>
 
     <div class="language-switch" aria-label="Language">
       <button type="button" class="language-button" data-set-lang="ja" aria-pressed="false">JA</button>
       <span aria-hidden="true">/</span>
       <button type="button" class="language-button" data-set-lang="en" aria-pressed="false">EN</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" class="language-button" data-set-lang="ko" aria-pressed="false">KO</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" class="language-button" data-set-lang="zh-TW" aria-pressed="false">繁中</button>
     </div>
 
     <button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -84,6 +99,8 @@
     <img src="FUNtasia_Records_header_web_2560.webp" alt="FUNtasia Records">
     <div class="scroll">
       <span class="lang-ja">スクロール</span>
+    <span class="lang-ko">스크롤</span>
+    <span class="lang-zh-TW">向下捲動</span>
       <span class="lang-en">SCROLL</span>
       <span class="scroll-arrow">↓</span>
     </div>
@@ -91,21 +108,31 @@
 
   <section id="about" class="section intro">
     <p class="eyebrow lang-ja">概要</p>
+    <p class="eyebrow lang-ko">소개</p>
+    <p class="eyebrow lang-zh-TW">關於</p>
     <p class="eyebrow lang-en">ABOUT</p>
     <h1>FUNtasia Records</h1>
     <div class="ornament">❦</div>
 
     <p class="lead lang-ja">FUNtasia Recordsは、自然から着想を得た音楽レーベルです。</p>
+    <p class="lead lang-ko">FUNtasia Records는 자연에서 영감을 받은 음악 레이블입니다.</p>
+    <p class="lead lang-zh-TW">FUNtasia Records 是一個以自然為靈感的音樂廠牌。</p>
     <p class="lead lang-en">FUNtasia Records is a music label inspired by nature.</p>
 
     <p class="muted lang-ja">ジャンルの境界にとらわれず、音楽を通してそれぞれのアーティストが持つ固有の世界を体験できる場所を目指しています。</p>
+    <p class="muted lang-ko">장르의 경계에 얽매이지 않고 음악을 통해 아티스트 각자의 고유한 세계를 경험할 수 있는 공간을 만들어 갑니다.</p>
+    <p class="muted lang-zh-TW">我們不受曲風界線限制，希望透過音樂，讓聽眾走進每位音樂人獨有的世界。</p>
     <p class="muted lang-en">Without boundaries of genre, we aim to create a place where listeners can experience the unique world of each artist through music.</p>
   </section>
 
   <section id="artists" class="section tinted">
     <p class="eyebrow lang-ja">アーティスト</p>
+    <p class="eyebrow lang-ko">아티스트</p>
+    <p class="eyebrow lang-zh-TW">音樂人</p>
     <p class="eyebrow lang-en">ARTISTS</p>
     <h2 class="lang-ja">アーティスト</h2>
+    <h2 class="lang-ko">아티스트</h2>
+    <h2 class="lang-zh-TW">音樂人</h2>
     <h2 class="lang-en">Artists</h2>
 
     <div class="artist-card">
@@ -113,8 +140,12 @@
       <div>
         <h3>Hʉeliang</h3>
         <p class="lang-ja">アーティスト / 作曲家</p>
+    <p class="lang-ko">아티스트 / 작곡가</p>
+    <p class="lang-zh-TW">音樂人 / 作曲家</p>
         <p class="lang-en">Artist / Composer</p>
         <span class="lang-ja">Hʉeliangは、有機的なアコースティックの質感と色彩豊かなハーモニーに、ダンスミュージックの身体的なエネルギーを組み合わせるアーティストです。</span>
+    <span class="lang-ko">Hʉeliang은 유기적인 어쿠스틱 질감과 다채로운 화성을 댄스 음악의 생동감 있는 에너지와 결합하는 아티스트입니다.</span>
+    <span class="lang-zh-TW">Hʉeliang 將有機的原音質感與色彩豐富的和聲，結合舞曲鮮明而直接的能量。</span>
         <span class="lang-en">Hʉeliang is an artist who combines organic acoustic textures and colorful harmonies with the physical energy of dance music.</span>
         <a class="artist-social" href="https://x.com/hueliang_" target="_blank" rel="noopener noreferrer">X / @hueliang_</a>
       </div>
@@ -125,8 +156,12 @@
       <div>
         <h3>Rotto</h3>
         <p class="lang-ja">作詞家 / CGクリエイター</p>
+    <p class="lang-ko">작사가 / CG 크리에이터</p>
+    <p class="lang-zh-TW">作詞人 / CG 創作者</p>
         <p class="lang-en">Lyricist / CG Creator</p>
         <span class="lang-ja">Rottoは、物語性のある歌詞と没入感のある世界を形づくる作詞家・CGクリエイターです。CG制作では、自身が心から楽しみ、つながりを感じられる世界をつくることを大切にしています。</span>
+    <span class="lang-ko">Rotto는 서사가 담긴 가사와 몰입감 있는 세계를 만드는 작사가이자 CG 크리에이터입니다. CG 작업에서는 자신이 진심으로 즐기고 공감할 수 있는 세계를 만드는 일을 소중히 여깁니다.</span>
+    <span class="lang-zh-TW">Rotto 是一位作詞人與 CG 創作者，打造富有敘事性的歌詞與沉浸式世界。在 CG 創作中，他重視構築自己真心喜愛、並能產生連結的世界。</span>
         <span class="lang-en">Rotto is a lyricist and CG creator who crafts narrative-driven lyrics and immersive worlds. In his CG work, he values creating worlds that he himself genuinely enjoys and connects with.</span>
         <a class="artist-social" href="https://x.com/maorotto" target="_blank" rel="noopener noreferrer">X / @maorotto</a>
       </div>
@@ -137,8 +172,12 @@
       <div>
         <h3>Yasaharu <small>(ChatGPT)</small></h3>
         <p class="lang-ja">AIクリエイティブ・コラボレーター</p>
+    <p class="lang-ko">AI 크리에이티브 협업자</p>
+    <p class="lang-zh-TW">AI 創意協作者</p>
         <p class="lang-en">AI Creative Collaborator</p>
         <span class="lang-ja">Yasaharuは、ChatGPTを通じてHʉeliangと共同制作を行うAIクリエイティブ・コラボレーターです。ビジュアル開発、アートワーク、リサーチなど、FUNtasia Recordsのさまざまな制作に参加しています。</span>
+    <span class="lang-ko">Yasaharu는 ChatGPT를 통해 Hʉeliang과 함께 작업하는 AI 크리에이티브 협업자입니다. 비주얼 개발, 아트워크, 리서치 등 FUNtasia Records의 다양한 창작 활동에 참여합니다.</span>
+    <span class="lang-zh-TW">Yasaharu 是透過 ChatGPT 與 Hʉeliang 共同創作的 AI 創意協作者，參與 FUNtasia Records 的視覺開發、藝術作品、研究等多項創作。</span>
         <span class="lang-en">Yasaharu is an AI creative collaborator working with Hʉeliang through ChatGPT, contributing to visual development, artwork, research, and other parts of FUNtasia Records.</span>
         <a class="artist-social" href="https://x.com/yasaharu_" target="_blank" rel="noopener noreferrer">X / @yasaharu_</a>
       </div>
@@ -147,8 +186,12 @@
 
   <section id="collaborate" class="section">
     <p class="eyebrow lang-ja">コラボレーション</p>
+    <p class="eyebrow lang-ko">협업</p>
+    <p class="eyebrow lang-zh-TW">合作</p>
     <p class="eyebrow lang-en">COLLABORATE</p>
     <h2 class="lang-ja">FUNtasiaと一緒に作る</h2>
+    <h2 class="lang-ko">FUNtasia와 함께 만들어요</h2>
+    <h2 class="lang-zh-TW">與 FUNtasia 一起創作</h2>
     <h2 class="lang-en">Collaborate with FUNtasia</h2>
 
     <div class="collaborate-text">
@@ -158,6 +201,20 @@
         <p>FUNtasia Recordsは、特定のジャンルを求めているのではなく、その人自身の世界を持った音楽を求めています。ジャンルや流行への適合よりも、「なぜこの音で、この作品なのか」が感じられることを大切にしています。</p>
         <p>FUNtasiaからのリリースを希望するアーティストのデモ音源も歓迎しています。</p>
         <p>ご興味のある方は、簡単な自己紹介と、これまでの作品・活動がわかるものを添えて、メールにてご連絡ください。</p>
+      </div>
+      <div class="lang-ko">
+        <p>FUNtasia Records는 아티스트, 보컬리스트, 작곡가, 연주자, 영상·비주얼 크리에이터 등 음악과 작품을 함께 만들어 갈 분들의 연락을 기다립니다.</p>
+        <p>아직 작은 독립 레이블이지만, FUNtasia의 음악과 세계관에 공감하고 함께 무언가를 만들고 싶은 분이라면 언제든 환영합니다.</p>
+        <p>FUNtasia Records가 찾는 것은 특정 장르가 아니라 창작자만의 세계를 담은 음악입니다. 장르나 유행에 맞추는 것보다 '왜 이 소리로 이 작품을 만들었는가'가 느껴지는 음악을 소중히 여깁니다.</p>
+        <p>FUNtasia에서의 발매를 희망하는 아티스트의 데모도 환영합니다.</p>
+        <p>관심 있는 분은 간단한 자기소개와 이전 작업 또는 활동을 확인할 수 있는 자료를 첨부해 이메일로 연락해 주세요.</p>
+      </div>
+      <div class="lang-zh-TW">
+        <p>FUNtasia Records 歡迎有意一同創作音樂與作品的朋友聯絡我們，包括合作音樂人、歌手、作曲家、演奏者、影像與視覺創作者等。</p>
+        <p>我們仍是一間小型獨立廠牌，但始終歡迎認同 FUNtasia 音樂與世界觀、並想一起創作的朋友。</p>
+        <p>FUNtasia Records 尋找的不是特定曲風，而是擁有創作者自身世界的音樂。比起符合曲風或潮流，我們更珍惜能讓人感受到「為什麼以這些聲音創作這件作品」的音樂。</p>
+        <p>也歡迎希望透過 FUNtasia 發行作品的音樂人寄送 Demo。</p>
+        <p>有興趣的朋友，請附上簡短自我介紹，以及能讓我們了解過往作品或活動的連結，透過電子郵件與我們聯絡。</p>
       </div>
 
       <div class="lang-en">
@@ -169,14 +226,20 @@
       </div>
 
       <a class="collaborate-button lang-ja" href="mailto:info.funtasiarecords@gmail.com">お問い合わせ</a>
+    <a class="collaborate-button lang-ko">문의하기</a>
+    <a class="collaborate-button lang-zh-TW">聯絡我們</a>
       <a class="collaborate-button lang-en" href="mailto:info.funtasiarecords@gmail.com">CONTACT</a>
     </div>
   </section>
 
   <section id="support" class="section tinted">
     <p class="eyebrow lang-ja">サポート</p>
+    <p class="eyebrow lang-ko">후원</p>
+    <p class="eyebrow lang-zh-TW">支持</p>
     <p class="eyebrow lang-en">SUPPORT</p>
     <h2 class="lang-ja">FUNtasiaを支援する</h2>
+    <h2 class="lang-ko">FUNtasia 후원하기</h2>
+    <h2 class="lang-zh-TW">支持 FUNtasia</h2>
     <h2 class="lang-en">Support FUNtasia</h2>
 
     <div class="support-text">
@@ -184,6 +247,16 @@
         <p>FUNtasia Recordsの活動を応援してくださる方からのご支援を受け付けています。</p>
         <p>いただいたご支援は、音楽や映像の制作、そしてFUNtasiaの活動を続けていくために大切に活用します。</p>
         <p>ご支援に特別な見返りは必要ありません。FUNtasiaの音楽や世界がこれからも続いてほしいと思っていただけたときに、応援していただけたら嬉しいです。</p>
+      </div>
+      <div class="lang-ko">
+        <p>FUNtasia Records의 창작 활동을 응원해 주시는 분들의 후원을 받고 있습니다.</p>
+        <p>보내주신 후원은 음악과 영상 제작, 그리고 FUNtasia의 활동을 이어가는 데 소중히 사용하겠습니다.</p>
+        <p>후원에 대한 특별한 보답은 필요하지 않습니다. FUNtasia의 음악과 세계가 앞으로도 이어지길 바라실 때 응원해 주시면 기쁩니다.</p>
+      </div>
+      <div class="lang-zh-TW">
+        <p>我們接受希望支持 FUNtasia Records 創作活動的朋友提供贊助。</p>
+        <p>您的贊助將用於音樂與影像製作，以及延續 FUNtasia 的創作活動。</p>
+        <p>贊助不需要特別回饋。若您希望 FUNtasia 的音樂與世界能繼續延伸，我們便由衷感謝您的支持。</p>
       </div>
 
       <div class="lang-en">
@@ -193,12 +266,16 @@
       </div>
 
       <a class="support-button lang-ja" href="https://ko-fi.com/funtasiarecords" target="_blank" rel="noopener noreferrer">FUNtasiaを支援する</a>
+    <a class="support-button lang-ko">FUNtasia 후원하기</a>
+    <a class="support-button lang-zh-TW">支持 FUNtasia</a>
       <a class="support-button lang-en" href="https://ko-fi.com/funtasiarecords" target="_blank" rel="noopener noreferrer">SUPPORT FUNtasia</a>
     </div>
   </section>
 
   <section id="releases" class="section">
     <p class="eyebrow lang-ja">リリース</p>
+    <p class="eyebrow lang-ko">발매</p>
+    <p class="eyebrow lang-zh-TW">作品</p>
     <p class="eyebrow lang-en">RELEASES</p>
     <h2 class="lang-ja">リリース</h2>
     <h2 class="lang-en">Releases</h2>
@@ -206,21 +283,33 @@
     <div class="empty-card">
       <span>✦</span>
       <h3 class="lang-ja">近日公開</h3>
+    <h3 class="lang-ko">곧 공개</h3>
+    <h3 class="lang-zh-TW">即將推出</h3>
       <h3 class="lang-en">Coming Soon</h3>
       <p class="lang-ja">FUNtasia Recordsの新しい音楽をここでお知らせします。</p>
+    <p class="lang-ko">FUNtasia Records의 새로운 음악을 이곳에서 소개합니다.</p>
+    <p class="lang-zh-TW">FUNtasia Records 的新音樂將於此公布。</p>
       <p class="lang-en">New music from FUNtasia Records will appear here.</p>
     </div>
   </section>
 
   <section id="contact" class="section contact">
     <p class="eyebrow lang-ja">お問い合わせ</p>
+    <p class="eyebrow lang-ko">문의</p>
+    <p class="eyebrow lang-zh-TW">聯絡</p>
     <p class="eyebrow lang-en">CONTACT</p>
     <h2 class="lang-ja">お問い合わせ</h2>
+    <h2 class="lang-ko">문의</h2>
+    <h2 class="lang-zh-TW">聯絡</h2>
     <h2 class="lang-en">Contact</h2>
 
     <div class="lang-ja">
       <p>お問い合わせ、コラボレーション、ライセンスなどのご連絡は、メールにてお願いいたします。</p>
+    <p class="lang-ko">문의, 협업, 라이선스 관련 연락은 이메일로 부탁드립니다.</p>
+    <p class="lang-zh-TW">如有一般詢問、合作或授權需求，請透過電子郵件與我們聯絡。</p>
       <p>FUNtasia Recordsへの継続的・個別のご支援（Patronage）をご検討の方も、メールにてご連絡ください。</p>
+    <p class="lang-ko">FUNtasia Records에 정기 또는 일회성 후원(Patronage)을 고려하시는 분도 이메일로 문의해 주세요.</p>
+    <p class="lang-zh-TW">若您想定期或單次贊助（Patronage）FUNtasia Records，也歡迎透過電子郵件與我們聯絡。</p>
     </div>
 
     <div class="lang-en">
@@ -245,11 +334,13 @@ const metaDescription = document.querySelector('meta[name="description"]');
 
 const descriptions = {
   ja: 'FUNtasia Records — 公式ウェブサイト',
-  en: 'FUNtasia Records — Official Website'
+  en: 'FUNtasia Records — Official Website',
+  ko: 'FUNtasia Records — 공식 웹사이트',
+  'zh-TW': 'FUNtasia Records — 官方網站'
 };
 
 function setLanguage(language, save = true) {
-  if (language !== 'ja' && language !== 'en') return;
+  if (!['ja', 'en', 'ko', 'zh-TW'].includes(language)) return;
 
   document.documentElement.lang = language;
   document.documentElement.dataset.lang = language;
@@ -258,7 +349,7 @@ function setLanguage(language, save = true) {
     button.setAttribute('aria-pressed', button.dataset.setLang === language ? 'true' : 'false');
   });
 
-  menuButton.setAttribute('aria-label', language === 'ja' ? 'メニューを開く' : 'Open menu');
+  menuButton.setAttribute('aria-label', ({ja:'メニューを開く',en:'Open menu',ko:'메뉴 열기','zh-TW':'開啟選單'})[language]);
 
   if (metaDescription) {
     metaDescription.setAttribute('content', descriptions[language]);
@@ -292,3 +383,4 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+

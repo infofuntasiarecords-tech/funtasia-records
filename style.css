@@ -12,8 +12,48 @@
 html{scroll-behavior:smooth}
 
 html[data-lang="ja"] .lang-en,
-html[data-lang="en"] .lang-ja{
+html[data-lang="ja"] .lang-ko,
+html[data-lang="ja"] .lang-zh-TW,
+html[data-lang="en"] .lang-ja,
+html[data-lang="en"] .lang-ko,
+html[data-lang="en"] .lang-zh-TW,
+html[data-lang="ko"] .lang-ja,
+html[data-lang="ko"] .lang-en,
+html[data-lang="ko"] .lang-zh-TW,
+html[data-lang="zh-TW"] .lang-ja,
+html[data-lang="zh-TW"] .lang-en,
+html[data-lang="zh-TW"] .lang-ko{
   display:none !important;
+}
+
+html[data-lang="ko"] .nav nav a,
+html[data-lang="ko"] .eyebrow,
+html[data-lang="zh-TW"] .nav nav a,
+html[data-lang="zh-TW"] .eyebrow{
+  letter-spacing:.08em;
+}
+
+html[data-lang="ko"] .section h1,
+html[data-lang="ko"] .section h2,
+html[data-lang="zh-TW"] .section h1,
+html[data-lang="zh-TW"] .section h2{
+  font-family:system-ui,sans-serif;
+  letter-spacing:0;
+}
+
+html[data-lang="ko"] .lead,
+html[data-lang="zh-TW"] .lead{
+  font-family:system-ui,sans-serif;
+  line-height:1.8;
+}
+
+html[data-lang="ko"] .artist-card span,
+html[data-lang="zh-TW"] .artist-card span{
+  line-height:1.9;
+}
+
+.language-switch{
+  gap:5px;
 }
 
 body{
@@ -489,3 +529,4 @@ footer small{
     text-align:center;
   }
 }
+
