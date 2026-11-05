@@ -2,23 +2,36 @@
 <html lang="en" data-lang="en">
 <head>
 
-<!-- FUNtasia unified landing redirect; preserve original KO / Traditional Chinese site until migrated. -->
+<!-- FUNtasia unified home redirect. To view the archived-language homepage, append ?legacy=1. -->
 <script data-funtasia-unified-redirect>
 (function () {
-  var lang = '';
-  try { lang = localStorage.getItem('funtasia-language') || ''; } catch (e) {}
-  if (!lang) lang = navigator.language || 'en';
-  lang = lang.toLowerCase();
-  if (lang.indexOf('ko') === 0 || lang.indexOf('zh-tw') === 0 || lang.indexOf('zh-hant') === 0) return;
-  var mapped = ({ja:'ja',en:'en',de:'de',fr:'fr',ru:'ru'})[lang.split('-')[0]] || 'en';
-  var anchor = location.hash.toLowerCase();
-  var mappedAnchors = {'#policy':'#policy','#collaborate':'#collaborate','#support':'#patronage','#contact':'#patronage','#artists':'','#about':'','#releases':''};
-  var dest = new URL('https://funtasiaaudio.github.io/records/' + (mapped === 'ja' ? '' : mapped + '/'));
-  if (Object.prototype.hasOwnProperty.call(mappedAnchors,anchor)) dest.hash = mappedAnchors[anchor];
-  dest.search = location.search;
-  location.replace(dest.href);
+  try {
+    var parameters = new URLSearchParams(location.search);
+    if (parameters.get('legacy') === '1') return;
+
+    var stored = '';
+    try { stored = localStorage.getItem('funtasia-language') || ''; } catch (ignored) {}
+    var candidate = (stored || navigator.language || 'ja').toLowerCase();
+    var primary = candidate.split('-')[0];
+    var supported = {ja:'ja',en:'en',de:'de',fr:'fr',ru:'ru'};
+    var language = supported[primary] || 'en';
+
+    var oldHash = location.hash.toLowerCase();
+    var translatedHashes = {
+      '#policy':'#policy',
+      '#collaborate':'#collaborate',
+      '#support':'#patronage',
+      '#contact':'#patronage'
+    };
+    var url = 'https://funtasiaaudio.github.io/records/' + (language === 'ja' ? '' : language + '/');
+    if (translatedHashes[oldHash]) url += translatedHashes[oldHash];
+    location.replace(url);
+  } catch (err) {
+    location.replace('https://funtasiaaudio.github.io/records/');
+  }
 })();
 </script>
+<noscript><meta http-equiv="refresh" content="0; url=https://funtasiaaudio.github.io/records/"></noscript>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0R4N9RXD44"></script>
